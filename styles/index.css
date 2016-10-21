@@ -1,0 +1,33 @@
+
+body {
+    font-family: Dosis, sans-serif;
+}
+
+h1 {
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0;
+}
+h2 {
+  text-align: center;
+  margin-top: 0;
+}
+p {
+  color: #807F83;
+}
+
+header {
+  margin: 2% 5%;
+}
+
+aside{
+  margin: 0 10%;
+}
+a:link {
+  color: #80B7F2;
+}
+a:visited, a:active {
+  color: #F2A35A;
+}
+a:hover {
+    color: #ACEFF2;

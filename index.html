@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>When Fireworks Go Wrong</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/modules/exporting.js"></script>
+        <script src="js/themes/grid-light.js"> </script>
+      <link href="https://fonts.googleapis.com/css?family=Dosis" rel="stylesheet">
+        <link rel="stylesheet" href="styles/index.css">
+</head>
+<body><header>
+<h1>When Fireworks Go Wrong</h1>
+
+<h2>By Hailey Anderton</h2>
+
+
+<p>Americans love their fireworks. Whether it's a national holiday or simply the friendly neighborhood pyromaniac's birthday, it's a safe bet there will be fireworks present. During the summer months, especially around Independence Day, there are a significant amount of recorded fireworks-related injuries. The charts below illustrate a breakdown of all fireworks-related injuries that took place between June 20-July 20, 2014. The column chart breaks down these occurances by age group and gender. The pie chart displays which bodily regions took the hardest beating during the given time period.</p></header>
+
+<div id="container" style="min-width: 310px; height: 400px; margin: 3% 5% 0 5%"></div>
+
+<aside><p>Source: National Electronic Injury Surveillance System, U.S. Consumer Product Safety Commission, Table 3. <a href="https://www.cpsc.gov/s3fs-public/pdfs/Fireworks_Report_2014.pdf">Estimated Fireworks-Related Injuries By Body Region and Diagnosis June 20–July 20, 2014</a></p></aside>
+
+<div id="something" style="min-width: 310px; height: 400px; margin: 3% 5% 0 5%"></div>
+
+<aside><p>Source: National Electronic Injury Surveillance System, U.S. Consumer Product Safety Commission, Table 5. <a href="https://www.cpsc.gov/s3fs-public/pdfs/Fireworks_Report_2014.pdf">Estimated Fireworks-Related Injuries By Body Region and Diagnosis June 20–July 20, 2014</a></p></aside>
+
+<script>
+$(function() {
+  $('#container').highcharts({
+    chart: {
+      type: 'column'
+    },
+    title: {
+      text: 'Estimated Fireworks-Related Injuries June 20-July 20, 2014'
+    },
+    xAxis: {
+      title: {
+        text: 'Age'
+      },
+      categories: ['0-4', '5-14', '15-24', '25-44', '45-64']
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: 'Total injuries'
+      },
+      stackLabels: {
+        enabled: true,
+        style: {
+          fontWeight: 'bold',
+          color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+        }
+      }
+    },
+    legend: {
+      align: 'right',
+      x: 0,
+      verticalAlign: 'top',
+      y: 65,
+      floating: true,
+      backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || 'white',
+      borderColor: '#CCC',
+      borderWidth: 1,
+      shadow: false
+    },
+    tooltip: {
+      headerFormat: '<b>{point.x}</b><br/>',
+      pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}'
+    },
+    plotOptions: {
+      column: {
+        stacking: 'normal',
+        dataLabels: {
+          enabled: false,
+          color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white'
+        }
+      }
+    },
+    series: [{
+      name: 'Male',
+      data: [300,1500,1200,1900,300]
+    }, {
+      name: 'Female',
+      data: [300,400,400,500,300]
+    }]
+  });
+});
+
+</script>
+
+
+
+<script>
+
+
+$(function () {
+
+    $(document).ready(function () {
+
+        // Build the chart
+        $('#something').highcharts({
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: 'Estimated Fireworks-Related Injuries from June 20-July 20, 2014, By Body Region Injured'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
+            },
+            series: [{
+                name: 'Percent of recorded Fireworks-Related Injuries ',
+                colorByPoint: true,
+                data: [{
+                    name: 'Trunk/Other',
+                    y: 11
+                }, {
+                    name: 'Arm',
+                    y: 5,
+                    sliced: true,
+                    selected: true
+                }, {
+                    name: 'Eye',
+                    y: 19
+                }, {
+                    name: 'Leg',
+                    y: 10
+                },{
+                    name: 'Hand/Finger',
+                    y: 36
+                },{
+                    name: 'Head/Face/Ear',
+                    y: 19
+                }]
+            }]
+        });
+    });
+});
+
+
+
+
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
